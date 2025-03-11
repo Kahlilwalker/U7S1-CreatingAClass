@@ -14,4 +14,5 @@ public class SavingAccountExample {
         System.out.println("Balance: " + balance);
         System.out.println("Rate: " + interestRate);
     }
+
 }
