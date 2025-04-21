@@ -1,14 +1,15 @@
 package partA.ex02;
 
+import static partA.ex01.SavingAccountExample.interestRate;
+
 public class SavingBond {
-    public class Bond {
         public String name;
-        public double balance;
-        public double rate;
-        public int term, monthsRemaining;
+        public static double balance;
+        public  static double rate;
+        public static int term, monthsRemaining;
 
-
-        public void setTermAndRate(int t) {
+     static void interest() {
+            int t = 10;
             if (t >= 0 && t < 12)
                 rate = 0.005;
             else if (t >= 12 && t < 24)
@@ -21,13 +22,15 @@ public class SavingBond {
                 rate = 0.025;
             else {
                 System.out.println("Invalid Term");
-                t = 2;
+                t = 10;
+
             }
             term = t;
-            monthsRemaining = t;
+            monthsRemaining = t;;
         }
 
-        public void earnInterest() {
+        public static void earnInterest() {
+           balance = 1000;
             if (monthsRemaining > 0) {
                 balance += balance * rate / 12;
                 monthsRemaining--;
@@ -41,17 +44,24 @@ public class SavingBond {
         }
 
 
-        public double getBalance() {
+        public static double getBalance() {
+           balance = 1000;
             balance = balance * rate;
             return balance;
         }
 
-        public  void main(String[] args) {
-            balance = 1000;
-           
-            earnInterest();
 
-        }
+
+    public static void main(String[] args) {
+        System.out.println(new SavingBond());
+        interest();
+        earnInterest();
+        System.out.println(getBalance());
+
+
+
+
     }
-
 }
+
+
